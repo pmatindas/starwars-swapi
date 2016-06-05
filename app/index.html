@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="starwarsApp">
+<html id="data-ng-app" data-ng-app="starwarsApp">
 <head>
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<title>SS Starwars Galaxy</title>	
 	<link rel="stylesheet" href="resources/style/main.css">
 	<script src="vendors/angular/angular.js"></script>
-	<script src="vendors/angular-route/angular-route.js"></script>	
+	<script src="vendors/angular-ui-router/release/angular-ui-router.js"></script>	
 	<script src="app.js"></script>
+	<script src="router.js"></script>
 	<script src="constant.js"></script>
+	<script src="swapiService.js"></script>	
+	<script src="directives.js"></script>
 	<script src="home/home.js"></script>	
 	<script src="person/person.js"></script>
 	<script src="starship/starship.js"></script>
@@ -20,11 +23,11 @@
 			<img class="image-center" src="resources/images/logo.png" alt="Starwars home" />
 		</a>	
 		<div id="topNav">
-			<a href="/person">Character</a> | <a href="/starship">Starship</a> | <a href="/species">Species</a>			
+			<a ui-sref="character">Character</a> | <a ui-sref="starship">Starship</a> | <a ui-sref="species">Species</a>			
 		</div>	
 	</header>
 	<div>		
-		<div id="container" ng-view>		
+		<div id="container" ui-view>		
 		</div>
 	</div>
 	<footer>		

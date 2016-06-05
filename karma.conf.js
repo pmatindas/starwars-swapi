@@ -1,16 +1,20 @@
-//jshint strict: false
 module.exports = function(config) {
   config.set({
 
     basePath: './app',
 
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'person/**/*.js',
+      'vendors/angular/angular.js',
+      'vendors/angular-ui-router/release/angular-ui-router.js',
+      'vendors/angular-mocks/angular-mocks.js',
+      'app.js',    
+      'constant.js',
+      'directives.js',
+      'swapiService.js',
+      'person/**/*.js',      
       'species/**/*.js',
-      'starship/**/*.js'
+      'starship/**/*.js',
+      'tests/**/*.spec.js'
     ],
 
     autoWatch: true,
@@ -30,6 +34,5 @@ module.exports = function(config) {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
     }
-
   });
 };

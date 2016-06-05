@@ -2,9 +2,8 @@
 	'use strict';
 
 	angular.module('starwarsApp')
-	.controller('HomeController',['$scope',HomeController]);
+	.controller('HomeController',HomeController);
 
-	function HomeController($scope){
-		console.log("Home controller change");
+	function HomeController(){		
 	}
 })();

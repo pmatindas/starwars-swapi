@@ -1,67 +1,62 @@
-(function(){
-	'use strict';
+(function() {
+    'use strict';
 
-	angular.module('starwarsApp')
-	.controller('SpeciesController', SpeciesController);	
+    angular.module('starwarsApp')
+        .controller('SpeciesController', SpeciesController);
 
-	function SpeciesController($scope, $http, starwarsConfig){	
-		var speciesCtrl = this;
+	SpeciesController.$inject = ['starwarsConfig', 'SwapiService'];
+    
+    function SpeciesController(starwarsConfig, swapiService) {
+        var speciesCtrl = this;
 
-		speciesCtrl.personList = [];
+        speciesCtrl.speciesList = [];
 
-		speciesCtrl.nextPage = null;
-		speciesCtrl.isEndofPage = false;
-		speciesCtrl.scrollInProgress = false;
+        speciesCtrl.nextPage = null;
+        speciesCtrl.isEndofPage = false;
+        speciesCtrl.scrollInProgress = false;
 
-		speciesCtrl.initData = InitData;
+        speciesCtrl.initData = InitData;
 
-		speciesCtrl.toggleFlag = function(item)
-		{			
-			if (item.detailPanelOpened === true)
-			{
-				item.detailPanelOpened = false;				
-			}
-			else
-			{
-				item.detailPanelOpened = true;				
-			}			
-		}
+        speciesCtrl.toggleFlag = function(item) {
+            if (item.detailPanelOpened === true) {
+                item.detailPanelOpened = false;
+            } else {
+                item.detailPanelOpened = true;
+            }
+        }
 
-		function InitData(){	
-			speciesCtrl.inProgress =true;		
-			var apiUrl = starwarsConfig.swapiUrl+starwarsConfig.swapiSpecies;
-			
-			//only fetch data if not the end of page
-            if (speciesCtrl.isEndofPage===false)
-            {
-				if (speciesCtrl.nextPage)
-				{
-					apiUrl = speciesCtrl.nextPage;
-				}			
-				$http.get(apiUrl).success(function(data){
-					if (speciesCtrl.personList.length>0)
-					{
-						speciesCtrl.personList.push.apply(speciesCtrl.personList, data.results);				
-					}
-					else
-					{
-						speciesCtrl.personList = data.results;	
-					}
-					speciesCtrl.nextPage = data.next;
+        function InitData() {
+            speciesCtrl.inProgress = true;
+            var apiUrl = starwarsConfig.swapiSpecies;
 
-					if(!data.next)
-					{
-						speciesCtrl.isEndofPage = true;
-					}
+            //only fetch data if not the end of page
+            if (speciesCtrl.isEndofPage === false) {
+                if (speciesCtrl.nextPage) {
+                    apiUrl = speciesCtrl.nextPage;
+                }
+                swapiService.list(starwarsConfig.swapiSpecies)
+                    .then(
+                        function(response) {
+                            if (speciesCtrl.speciesList.length > 0) {
+                                speciesCtrl.speciesList.push.apply(speciesCtrl.speciesList, response.data.results);
+                            } else {
+                                speciesCtrl.speciesList = response.data.results;
+                            }
+                            speciesCtrl.nextPage = response.data.next;
 
-					speciesCtrl.inProgress =false;
-				});
-			}			
-		}
+                            if (!response.data.next) {
+                                speciesCtrl.isEndofPage = true;
+                            }
 
-		//run process
-		speciesCtrl.initData();
+                            speciesCtrl.inProgress = false;
+                        },
+                        function(error) {
+                            console.log('<!-- error -->', error);
+                        });
+            }
+        }
 
-		// return speciesCtrl;
-	};	
+        //run process
+        speciesCtrl.initData();
+    };
 })();

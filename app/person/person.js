@@ -1,67 +1,62 @@
-(function(){
-	'use strict';
+(function() {
+    'use strict';
 
-	angular.module('starwarsApp')
-	.controller('PersonController', PersonController);	
+    angular.module('starwarsApp')
+        .controller('PersonController', PersonController);
 
-	function PersonController($scope, $http, starwarsConfig){	
-		var personCtrl = this;
+    PersonController.$inject = ['starwarsConfig', 'SwapiService'];
 
-		personCtrl.personList = [];
+    function PersonController(starwarsConfig, swapiService) {
+        var personCtrl = this;
 
-		personCtrl.nextPage = null;
-		personCtrl.isEndofPage = false;
-		personCtrl.scrollInProgress = false;
+        personCtrl.personList = [];
+        personCtrl.nextPage = null;
+        personCtrl.isEndofPage = false;
+        personCtrl.scrollInProgress = false;
+        personCtrl.initData = InitData;
+        personCtrl.toggleFlag = ToggleFlag;
 
-		personCtrl.initData = InitData;
+        function ToggleFlag() {
+            if (item.detailPanelOpened === true) {
+                item.detailPanelOpened = false;
+            } else {
+                item.detailPanelOpened = true;
+            }
+        }
 
-		personCtrl.toggleFlag = function(item)
-		{			
-			if (item.detailPanelOpened === true)
-			{
-				item.detailPanelOpened = false;				
-			}
-			else
-			{
-				item.detailPanelOpened = true;				
-			}			
-		}
+        function InitData() {
+            personCtrl.inProgress = true;
+            var apiUrl = starwarsConfig.swapiUrl + starwarsConfig.swapiPerson;
 
-		function InitData(){	
-			personCtrl.inProgress =true;		
-			var apiUrl = starwarsConfig.swapiUrl+starwarsConfig.swapiPerson;
-			
-			//only fetch data if not the end of page
-            if (personCtrl.isEndofPage===false)
-            {
-				if (personCtrl.nextPage)
-				{
-					apiUrl = personCtrl.nextPage;
-				}			
-				$http.get(apiUrl).success(function(data){
-					if (personCtrl.personList.length>0)
-					{
-						personCtrl.personList.push.apply(personCtrl.personList, data.results);				
-					}
-					else
-					{
-						personCtrl.personList = data.results;	
-					}
-					personCtrl.nextPage = data.next;
+            //only fetch data if not the end of page
+            if (personCtrl.isEndofPage === false) {
+                if (personCtrl.nextPage) {
+                    apiUrl = personCtrl.nextPage;
+                }
 
-					if(!data.next)
-					{
-						personCtrl.isEndofPage = true;
-					}
+                swapiService.list(starwarsConfig.swapiPerson)
+                    .then(
+                        function(response) {
+                            if (personCtrl.personList.length > 0) {
+                                personCtrl.personList.push.apply(personCtrl.personList, response.data.results);
+                            } else {
+                                personCtrl.personList = response.data.results;
+                            }
+                            personCtrl.nextPage = response.data.next;
 
-					personCtrl.inProgress =false;
-				});
-			}			
-		}
+                            if (!response.data.next) {
+                                personCtrl.isEndofPage = true;
+                            }
 
-		//run process
-		personCtrl.initData();
+                            personCtrl.inProgress = false;
+                        },
+                        function(error) {
+                            console.log('<!-- error -->', error);
+                        });
+            }
+        }
 
-		// return personCtrl;
-	};	
+        //run process
+        personCtrl.initData();
+    }
 })();

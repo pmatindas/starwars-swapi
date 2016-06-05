@@ -156,7 +156,7 @@ body {
 }
 
 header {
-    height: 120px;
+    height: 150px;
     width: 100%;
     margin: 10px;
     text-align: center;
@@ -183,6 +183,12 @@ img.image-center {
     margin: 0 auto;
 }
 
+a:link {
+    color:#fa0;
+}
+a:visited, a:hover{
+    color:#f80;
+}
 @media only screen and (min-width:1024px) {
     .main-content {
         width: 600px;
@@ -193,6 +199,7 @@ h1.page-title{
 	font: 1.6em/1.7 STARWARS, serif;
 	text-align:center;
 }
+
 /* == person == */
 
 .person-list,

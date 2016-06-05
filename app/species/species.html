@@ -1,7 +1,7 @@
-<div class="main-content" ng-controller="SpeciesController as species">
+<div class="main-content">
 	<h1 class="page-title">Species</h1>
     <div class="species-list" on-scroll="species.initData()" in-progress='species.inProgress'>
-        <div class="species-list-item" ng-repeat="item in species.personList">
+        <div class="species-list-item" ng-repeat="item in species.speciesList">
             <div class="species-list-item-intro">
                 <div class="list-item-title">
                     <span class="title-yellow">{{item.name}}</span>
