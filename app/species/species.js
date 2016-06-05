@@ -26,8 +26,7 @@
         }
 
         function InitData() {
-            speciesCtrl.inProgress = true;
-            var apiUrl = starwarsConfig.swapiSpecies;
+            speciesCtrl.inProgress = true;            
 
             //only fetch data if not the end of page
             if (speciesCtrl.isEndofPage === false) {

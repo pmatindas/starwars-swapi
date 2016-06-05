@@ -29,8 +29,6 @@
 
             starshipCtrl.inProgress = true;
 
-            var apiUrl = starwarsConfig.swapiStarship;
-
 			//only fetch data if not the end of page
             if (starshipCtrl.isEndofPage===false)
             {

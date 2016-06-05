@@ -25,8 +25,7 @@
         }
 
         function InitData() {
-            personCtrl.inProgress = true;
-            var apiUrl = starwarsConfig.swapiUrl + starwarsConfig.swapiPerson;
+            personCtrl.inProgress = true;            
 
             //only fetch data if not the end of page
             if (personCtrl.isEndofPage === false) {

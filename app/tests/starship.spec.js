@@ -2,7 +2,7 @@ describe('StarshipController', function() {
     var starshipCtrl, httpBackend;
     var starshipData = {
     "count": 37, 
-    "next": "http://swapi.co/api/species/?page=2", 
+    "next": "https://swapi.co/api/species/?page=2", 
     "previous": null, 
     "results": [
         {

@@ -2,7 +2,7 @@ describe('SpeciesController', function() {
     var speciesCtrl, httpBackend;
     var speciesData = {
     "count": 37, 
-    "next": "http://swapi.co/api/species/?page=2", 
+    "next": "https://swapi.co/api/species/?page=2", 
     "previous": null, 
     "results": [
         {
