@@ -3,10 +3,10 @@
 
     angular.module('starwarsApp')    	
         .constant('starwarsConfig',{        	
-        	swapiPerson:'http://swapi.co/api/people',
-        	swapiStarship: 'http://swapi.co/api/starships',
-        	swapiFilm: 'http://swapi.co/api/films',
-        	swapiSpecies: 'http://swapi.co/api/species'
+        	swapiPerson:'https://swapi.co/api/people',
+        	swapiStarship: 'https://swapi.co/api/starships',
+        	swapiFilm: 'https://swapi.co/api/films',
+        	swapiSpecies: 'https://swapi.co/api/species'
         });
 
 })();
