@@ -1,0 +1,118 @@
+<div class="main-content" ng-controller="SpeciesController as species">
+	<h1 class="page-title">Species</h1>
+    <div class="species-list" on-scroll="species.initData()" in-progress='species.inProgress'>
+        <div class="species-list-item" ng-repeat="item in species.personList">
+            <div class="species-list-item-intro">
+                <div class="list-item-title">
+                    <span class="title-yellow">{{item.name}}</span>
+                </div>
+                <div class="list-item-link">
+                    <button type="button" class="button-details" ng-click="species.toggleFlag(item)">Details</button>
+                </div>
+                <div class="reset"></div>
+            </div>
+            <div class="species-list-item-details" ng-show="item.detailPanelOpened">
+	            <div class="list-item-header">  
+	            	<h3>Information about {{item.name}}</h3> 
+	            </div>   
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Classification:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.classification}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Designation:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.designation}}</span>
+                    </div>
+                </div>
+	            <div class="list-item">
+                    <div class="list-item-left">
+                        Average Height:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.average_height}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Average Lifespan:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.average_lifespan}}</span>
+                    </div>
+                </div>                     
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Eye Colors:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.eye_colors}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Hair Colors:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.hair_colors}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Skin Colors:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.skin_colors}}</span>
+                    </div>
+                </div>                     
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Language:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.language}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Homeworld:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.homeworld}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        average_height:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.hair_colors }}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Birth Year:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.skin_colors }}</span>
+                    </div>
+                </div>                     
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Skin Color:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.language  }}</span>
+                    </div>
+                </div>
+                <div class="reset"></div>	            
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,284 @@
+/* reset css */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* == font == */
+
+@font-face {
+    font-family: "STARWARS";
+    src: url("../font/STARWARS.eot?") format("eot"), url("../font/STARWARS.woff") format("woff"), url("../font/STARWARS.ttf") format("truetype"), url("../font/STARWARS.svg#STARWARS") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* == global == */
+
+body {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #ccc;
+    overflow-x: hidden;
+    font: 1em/1.2 arial, sans-serif;
+}
+
+header {
+    height: 120px;
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.reset {
+    clear: both;
+}
+
+img.image-center {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.main-content {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width:1024px) {
+    .main-content {
+        width: 600px;
+    }
+}
+
+h1.page-title{
+	font: 1.6em/1.7 STARWARS, serif;
+	text-align:center;
+}
+/* == person == */
+
+.person-list,
+.starship-list,
+.species-list {
+    padding: 10px;
+    margin: 0 15px;
+}
+
+.person-list-item,
+.starship-list-item,
+.species-list-item {
+    border: 1px solid #fa0;
+    padding: 5px;
+}
+
+.person-list-item-details,
+.starship-list-item-details,
+.species-list-item-details {
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+}
+
+.person-list-item-details span,
+.starship-list-item-details span,
+.species-list-item-details span {
+    width: 100%;
+}
+
+.list-item-header {
+    color: #fa0;
+    font: 1.2em/1.4 STARWARS, serif;
+}
+
+.list-item-title {
+    width: 70%;
+    padding: 5px;
+    display: inline-block;
+}
+
+.list-item-link {
+    padding: 5px;
+    float: right;
+}
+
+.list-item {
+    width: 100%;
+    padding: 5px;
+    display:inline-block;
+}
+
+.person-list-item-details .list-item-left{
+    width: 20%;
+    float: left;    
+}
+.person-list-item-details.list-item-right {
+    width: 70%;
+    float: left;    
+}
+
+.starship-list-item-details .list-item-left{
+	width:50%;
+	float:left;	
+}
+.starship-list-item-details .list-item-right{
+	width: 50%;
+    float: left;    
+}
+
+.species-list-item-details .list-item-left{
+	width: 40%;
+	float:left;	
+}
+.species-list-item-details .list-item-right{
+	width: 60%;
+    float: left;    
+}
+
+.title-yellow {
+    font: 1.3em/1.5 STARWARS, serif;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #fd0;
+    cursor: pointer;
+}

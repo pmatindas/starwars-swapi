@@ -1,0 +1,118 @@
+<div class="main-content" ng-controller="StarshipController as starship">
+    <h1 class="page-title">Starship</h1>
+    <div class="starship-list" on-scroll="starship.initData()" in-progress='starship.inProgress'>
+        <div class="starship-list-item" ng-repeat="item in starship.starshipList">
+            <div class="starship-list-item-intro">
+                <div class="list-item-title">
+                    <span class="title-yellow">{{item.name}}</span>
+                </div>
+                <div class="list-item-link">
+                    <button type="button" class="button-details" ng-click="starship.toggleFlag(item)">Details</button>
+                </div>
+                <div class="reset"></div>
+            </div>
+            <div class="starship-list-item-details" ng-show="item.detailPanelOpened">
+	            <div class="list-item-header">  
+	            	<h3>Information about {{item.name}}</h3> 
+	            </div>   	            
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Model:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.model}}</span>
+                    </div>
+                </div>     
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Starship Class:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.starship_class}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Manufacturer:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.manufacturer}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Cost in Credits:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.cost_in_credits}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Length (metres):
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.length}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Crew:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.crew}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Passengers:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.passengers}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Maximum speed in atmosphere:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.max_atmosphering_speed}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Starship Hyperdrive Rating:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.hyperdrive_rating}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        MGLT:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.MGLT}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Cargo Capacity:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.cargo_capacity}}</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-left">
+                        Consumables:
+                    </div>
+                    <div class="list-item-right">
+                        <span>{{item.consumables}}</span>
+                    </div>
+                </div>
+                <div class="reset"></div>	            
+            </div>
+        </div>
+    </div>
+</div>

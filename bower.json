@@ -1,0 +1,13 @@
+{
+  "name": "Starwars",
+  "description": "Starwars app using http://swapi.co webservice",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pmatindas/starwars-swapi",  
+  "private": true,
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-route": "~1.5.0",
+    "angular-loader": "~1.5.0",
+    "angular-mocks": "~1.5.0"
+  }
+}
