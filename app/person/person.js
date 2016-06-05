@@ -16,7 +16,7 @@
         personCtrl.initData = InitData;
         personCtrl.toggleFlag = ToggleFlag;
 
-        function ToggleFlag() {
+        function ToggleFlag(item) {
             if (item.detailPanelOpened === true) {
                 item.detailPanelOpened = false;
             } else {
