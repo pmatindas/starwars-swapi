@@ -7,7 +7,7 @@
     StarshipController.$inject = ['starwarsConfig', 'SwapiService'];
     
     function StarshipController(starwarsConfig, swapiService) {
-        var starshipCtrl = this;
+        var starshipCtrl = this;        
 
         starshipCtrl.starshipList = [];
 
@@ -28,6 +28,7 @@
         function InitData() {
 
             starshipCtrl.inProgress = true;
+            var apiUrl = starwarsConfig.swapiStarship;
 
 			//only fetch data if not the end of page
             if (starshipCtrl.isEndofPage===false)
@@ -36,7 +37,7 @@
 	                apiUrl = starshipCtrl.nextPage;
 	            }
 
-				swapiService.list(starwarsConfig.swapiStarship)
+				swapiService.list(apiUrl)
                     .then(
                         function(response) {
                             if (starshipCtrl.starshipList.length > 0) {

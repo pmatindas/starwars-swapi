@@ -26,6 +26,7 @@
 
         function InitData() {
             personCtrl.inProgress = true;            
+            var apiUrl =starwarsConfig.swapiPerson;
 
             //only fetch data if not the end of page
             if (personCtrl.isEndofPage === false) {
@@ -33,7 +34,7 @@
                     apiUrl = personCtrl.nextPage;
                 }
 
-                swapiService.list(starwarsConfig.swapiPerson)
+                swapiService.list(apiUrl)
                     .then(
                         function(response) {
                             if (personCtrl.personList.length > 0) {

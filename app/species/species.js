@@ -27,13 +27,14 @@
 
         function InitData() {
             speciesCtrl.inProgress = true;            
+            var apiUrl = starwarsConfig.swapiSpecies;            
 
             //only fetch data if not the end of page
             if (speciesCtrl.isEndofPage === false) {
                 if (speciesCtrl.nextPage) {
                     apiUrl = speciesCtrl.nextPage;
                 }
-                swapiService.list(starwarsConfig.swapiSpecies)
+                swapiService.list(apiUrl)
                     .then(
                         function(response) {
                             if (speciesCtrl.speciesList.length > 0) {
